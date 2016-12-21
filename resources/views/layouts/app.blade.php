@@ -30,13 +30,13 @@
             </div>
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Lijeva strana navbar: link na recepte -->
-				
+				<a class="navbar-brand" href="{{ url('/recipes') }}">Recepti</a>
                 <!-- Desna strana navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Linkovi za Prijavu i Registraciju -->
                     @if (Auth::guest())
-                        <li>Prijava</li>
-                        <li>Registracija</li>
+                        <li><a class="navbar-brand" href="{{ url('/login') }}">Prijava</a></li>
+                        <li><a class="navbar-brand" href="{{ url('/register') }}">Registracija</a></li>
                     @else
                         <li class="dropdown">
                             <!-- Dropdown menu za promjenu lozinke i odjavu -->
@@ -45,8 +45,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><i class="fa fa-btn fa-cog"></i>Profil</li>
-                                <li><i class="fa fa-btn fa-sign-out"></i>Odjava</li>
+								<li><a class="navbar-brand" href="{{ url('/recipe/add') }}"><i class="fa fa-plus-circle"></i> Dodaj recept</a></li>
+                                <li><a class="navbar-brand" href="{{ url('/profil') }}"><i class="fa fa-btn fa-cog"></i>Profil</a></li>
+                                <li><a class="navbar-brand" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Odjava</a></li>
                             </ul>
                         </li>
                     @endif

@@ -43,7 +43,31 @@ Route::group(['middleware' => 'web'], function () {
 		 - spremanje izmijenjenog recepta u bazu
 	*/
 	
+	
 	// User
     Route::get('/profil', 'UsersController@profil');
     Route::post('/profil', 'UsersController@profil');
+
+	//Recepti
+	
+	Route::get('/recipes', 'RecipeController@index');
+	
+	/*
+	Dodaj novi recept
+	*/
+	Route::get('/recipe/add', 'RecipeController@add');
+	Route::post('/recipe/add', 'RecipeController@save');
+	
+	/*
+	Pregled recepta
+	*/
+	Route::get('/recipes/view/{id}', 'RecipeController@view');
+	
+	/*
+	Editiranje recepta
+	*/
+	Route::get('/recipes/edit/{id}', 'RecipeController@edit');
+	Route::post('/recipes/edit', 'RecipeController@update');
+
+	
 });
