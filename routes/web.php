@@ -59,6 +59,11 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/recipe/add', 'RecipeController@save');
 	
 	/*
+	Brisi recept
+	*/
+	Route::delete('/recipes/{id}', 'RecipeController@deleteRecipe');
+	
+	/*
 	Pregled recepta
 	*/
 	Route::get('/recipes/view/{id}', 'RecipeController@view');
